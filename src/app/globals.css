@@ -218,3 +218,13 @@
 .bn-suggestion-menu [data-active="true"] {
   background-color: #f5f0eb !important;
 }
+
+/* Make custom AI tool blocks (generatedImage, sceneBeat) stretch full width */
+[data-content-type="generatedImage"],
+[data-content-type="sceneBeat"] {
+  width: 100% !important;
+}
+[data-content-type="generatedImage"] > *,
+[data-content-type="sceneBeat"] > * {
+  width: 100%;
+}

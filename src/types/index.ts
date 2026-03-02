@@ -19,7 +19,7 @@ export interface AiAction {
 }
 
 // Document editor types
-export type BlockType = "heading" | "paragraph" | "reference" | "image" | "separator";
+export type BlockType = "heading" | "paragraph" | "reference" | "image" | "separator" | "sceneBeat";
 
 export interface EditorBlock {
   id: string;
@@ -29,6 +29,9 @@ export interface EditorBlock {
   refName?: string; // for reference blocks
   imageLabel?: string; // for image blocks
   aiGenerated?: boolean;
+  targetCharCount?: number; // for sceneBeat blocks
+  chapterId?: string; // for sceneBeat blocks
+  chapterLabel?: string; // for sceneBeat blocks
 }
 
 export interface SlashCommand {

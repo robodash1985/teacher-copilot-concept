@@ -12,7 +12,7 @@ export function getCustomSlashMenuItems(
   const defaults = getDefaultReactSlashMenuItems(editor as any) as DefaultReactSuggestionItem[];
 
   const fileItem: DefaultReactSuggestionItem = {
-    title: "File",
+    title: "File Upload",
     subtext: "Upload a document and extract content",
     group: "AI Tools",
     onItemClick: () => {
@@ -43,5 +43,31 @@ export function getCustomSlashMenuItems(
     badge: undefined,
   };
 
-  return [...defaults, fileItem, imageItem];
+  const smartLessonItem: DefaultReactSuggestionItem = {
+    title: "Smart Lesson",
+    subtext: "สร้างบทเรียนอัจฉริยะ พร้อมนับตัวอักษรและ AI ช่วยเขียน",
+    group: "AI Tools",
+    onItemClick: () => {
+      const currentBlock = editor.getTextCursorPosition().block;
+      editor.insertBlocks(
+        [
+          {
+            type: "sceneBeat" as any,
+            props: {
+              text: "",
+              targetCharCount: "500",
+              chapterId: "",
+              chapterLabel: "",
+            },
+          },
+        ],
+        currentBlock,
+        "after"
+      );
+    },
+    aliases: ["smart-lesson", "lesson", "บทเรียน", "สมาร์ท"],
+    badge: undefined,
+  };
+
+  return [...defaults, fileItem, imageItem, smartLessonItem];
 }

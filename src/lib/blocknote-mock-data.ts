@@ -46,6 +46,18 @@ export function convertBlocksToBlockNote(
       case "separator":
         // Omitted — BlockNote spacing is sufficient
         break;
+
+      case "sceneBeat":
+        result.push({
+          type: "sceneBeat",
+          props: {
+            text: block.content ?? "",
+            targetCharCount: String(block.targetCharCount ?? 500),
+            chapterId: block.chapterId ?? "",
+            chapterLabel: block.chapterLabel ?? "",
+          },
+        });
+        break;
     }
   }
 
