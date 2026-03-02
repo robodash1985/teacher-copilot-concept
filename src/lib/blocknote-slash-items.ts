@@ -1,8 +1,6 @@
 import type { AppSchema } from "./blocknote-schema";
-import type {
-  DefaultSuggestionItem,
-  BlockNoteEditor,
-} from "@blocknote/core";
+import type { BlockNoteEditor } from "@blocknote/core";
+import type { DefaultReactSuggestionItem } from "@blocknote/react";
 import {
   getDefaultReactSlashMenuItems,
 } from "@blocknote/react";
@@ -10,10 +8,10 @@ import {
 export function getCustomSlashMenuItems(
   editor: BlockNoteEditor<AppSchema["blockSchema"], AppSchema["inlineContentSchema"], AppSchema["styleSchema"]>,
   onFileUpload: () => void
-): DefaultSuggestionItem[] {
-  const defaults = getDefaultReactSlashMenuItems(editor as any) as DefaultSuggestionItem[];
+): DefaultReactSuggestionItem[] {
+  const defaults = getDefaultReactSlashMenuItems(editor as any) as DefaultReactSuggestionItem[];
 
-  const fileItem: DefaultSuggestionItem = {
+  const fileItem: DefaultReactSuggestionItem = {
     title: "File",
     subtext: "Upload a document and extract content",
     group: "AI Tools",
@@ -24,7 +22,7 @@ export function getCustomSlashMenuItems(
     badge: undefined,
   };
 
-  const imageItem: DefaultSuggestionItem = {
+  const imageItem: DefaultReactSuggestionItem = {
     title: "AI Image",
     subtext: "Generate an image with AI",
     group: "AI Tools",
